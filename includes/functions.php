@@ -27,6 +27,13 @@ function format_event_date(): string {
         . ' → 1er ' . $mois[(int)$end->format('n')] . ' ' . $end->format('Y');
 }
 
+function format_event_badge(): array {
+    $start = new DateTime(EVENT_START);
+    $moisAbrev = [1=>'JANV',2=>'FÉVR',3=>'MARS',4=>'AVR',5=>'MAI',6=>'JUIN',
+        7=>'JUIL',8=>'AOÛT',9=>'SEPT',10=>'OCT',11=>'NOV',12=>'DÉC'];
+    return ['day' => $start->format('d'), 'month' => $moisAbrev[(int)$start->format('n')]];
+}
+
 function json_input(): array {
     $raw = file_get_contents('php://input');
     $data = json_decode($raw, true);
