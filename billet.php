@@ -25,23 +25,31 @@ $verifyUrl = rtrim(SITE_URL, '/') . '/verify.php?token=' . urlencode($token);
     <div class="notice notice-success no-print">Paiement confirmé — voici votre billet électronique.</div>
 
     <div class="ticket" id="ticketCard">
-      <div class="ticket-head">
-        <span class="eyebrow">✦ <?= htmlspecialchars(EVENT_NAME) ?></span>
-        <h2><?= htmlspecialchars(pass_label($ticket['pass_type'])) ?></h2>
-      </div>
-      <div class="ticket-body">
-        <div class="ticket-meta">
-          <div><span class="lbl">Titulaire</span><div class="val"><?= htmlspecialchars($ticket['buyer_name']) ?></div></div>
-          <div><span class="lbl">Date</span><div class="val"><?= format_event_date() ?></div></div>
-          <div><span class="lbl">Lieu</span><div class="val"><?= htmlspecialchars(EVENT_VENUE) ?>, <?= htmlspecialchars(EVENT_CITY) ?></div></div>
-          <div><span class="lbl">Prix</span><div class="val"><?= format_money((int)$ticket['price']) ?></div></div>
+      <div class="ticket-main">
+        <div class="ticket-artwork"></div>
+        <div class="ticket-content">
+          <div class="ticket-top">
+            <span class="ticket-brand">✦ <?= htmlspecialchars(EVENT_NAME) ?></span>
+            <span class="ticket-when"><?= format_event_date() ?></span>
+          </div>
+          <h2 class="ticket-pass"><?= htmlspecialchars(pass_label($ticket['pass_type'])) ?></h2>
+          <div class="ticket-holder">
+            <?= htmlspecialchars($ticket['buyer_name']) ?> · <?= htmlspecialchars(EVENT_VENUE) ?>, <?= htmlspecialchars(EVENT_CITY) ?>
+          </div>
+          <div class="ticket-bottom">
+            <div class="qr-box" id="qrBox"></div>
+            <div class="ticket-price"><?= format_money((int)$ticket['price']) ?></div>
+          </div>
         </div>
-        <div class="qr-box" id="qrBox"></div>
       </div>
-      <div class="ticket-foot">
-        N° billet : <?= htmlspecialchars(strtoupper(substr($token, 0, 12))) ?> · Ce QR code est unique et sera scanné à l'entrée pour valider votre accès.
+      <div class="ticket-stub">
+        <span class="stub-text">St-Sylvestre</span>
+        <span class="stub-num">#<?= htmlspecialchars(strtoupper(substr($token, 0, 8))) ?></span>
       </div>
     </div>
+    <p class="ticket-legal no-print">
+      N° billet : <?= htmlspecialchars(strtoupper(substr($token, 0, 12))) ?> · Ce QR code est unique et sera scanné à l'entrée pour valider votre accès.
+    </p>
 
     <div class="ticket-actions no-print">
       <button class="btn btn-gold" onclick="window.print()">Imprimer mon billet</button>

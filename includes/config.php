@@ -21,8 +21,8 @@ define('EVENT_CITY', 'Lomé'); // à personnaliser
 define('CURRENCY_LABEL', 'FCFA');
 
 // Tarifs des pass (à ajuster selon votre événement).
-define('PRICE_SOLO', 15000);
-define('PRICE_COUPLE', 25000);
+define('PRICE_SOLO', 10000);
+define('PRICE_COUPLE', 15000);
 
 // Email de contact / organisation affiché sur le site.
 define('CONTACT_EMAIL', 'contact@fete-saint-sylvestre.example');
