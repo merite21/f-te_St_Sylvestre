@@ -275,63 +275,8 @@ section { position: relative; padding: 100px 5vw; z-index: 1; }
 .ticket-holder { font-size: 0.82rem; color: var(--ink-dim); margin-bottom: auto; line-height: 1.4; }
 .ticket-bottom { display: flex; align-items: flex-end; justify-content: space-between; gap: 18px; margin-top: 16px; padding-right: 0; }
 .qr-box { background: #fff; padding: 8px; border-radius: 8px; line-height: 0; flex-shrink: 0; }
-.ticket-price { font-family: var(--serif); font-weight: 700; font-size: 1.8rem; color: #fff; text-align: right; white-space: nowrap; }
-
-.ticket-panel { flex: 1; min-width: 0; display: flex; flex-direction: column; }
-
-/* Artwork coloré du haut, façon visuel de billet imprimé */
-.ticket-artwork {
-  position: relative; height: 170px; overflow: hidden;
-  background: linear-gradient(160deg, var(--night-3) 0%, #3a1230 55%, var(--night-2) 100%);
-}
-.ticket-burst {
-  position: absolute; width: 210px; height: 210px; border-radius: 50%;
-  background: radial-gradient(circle at 35% 35%, #ffe9b0 0%, var(--gold) 22%, var(--rose) 55%, transparent 78%);
-}
-.ticket-burst.b1 { top: -75px; left: -65px; }
-.ticket-burst.b2 {
-  bottom: -95px; right: -55px;
-  background: radial-gradient(circle at 40% 40%, #f0a5b8 0%, var(--rose) 30%, #6a1f45 60%, transparent 78%);
-}
-.ticket-date-badge {
-  position: absolute; top: 14px; right: 14px; z-index: 2;
-  display: flex; flex-direction: column; align-items: center; justify-content: center;
-  width: 52px; height: 52px; border-radius: 50%;
-  background: rgba(11,13,31,0.55); border: 1px solid var(--gold);
-  color: var(--gold-2); font-family: var(--serif); font-weight: 700; font-size: 1.25rem; line-height: 1;
-}
-.ticket-date-badge small {
-  font-family: var(--sans); font-size: 0.52rem; letter-spacing: 0.08em;
-  text-transform: uppercase; font-weight: 600; margin-top: 2px;
-}
-.ticket-eyebrow {
-  position: absolute; left: 18px; bottom: 14px; z-index: 2; max-width: 75%;
-  font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--gold-2);
-}
-
-.ticket-content { padding: 20px 22px 14px; }
-.ticket-pass { font-family: var(--serif); font-size: 1.5rem; color: #fff; margin: 0 0 2px; }
-.ticket-holder { font-size: 0.85rem; color: var(--ink-dim); margin-bottom: 14px; }
-.ticket-meta div { margin-bottom: 8px; }
-.ticket-meta .lbl { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--ink-dim); }
-.ticket-meta .val { font-size: 0.92rem; color: var(--ink); }
-
-/* Pied du billet : QR + prix, séparé par une ligne pointillée (souche détachable) */
-.ticket-footer {
-  position: relative;
-  display: flex; align-items: center; gap: 12px; flex-wrap: wrap;
-  padding: 16px 22px; border-top: 2px dashed rgba(232,196,106,0.35);
-}
-.ticket-footer::before, .ticket-footer::after {
-  content: ""; position: absolute; top: -11px; width: 22px; height: 22px; border-radius: 50%;
-  background: var(--night); border: 1px solid rgba(232,196,106,0.35);
-}
-.ticket-footer::before { left: -11px; }
-.ticket-footer::after { right: -11px; }
-.qr-box { background: #fff; padding: 8px; border-radius: 8px; line-height: 0; flex-shrink: 0; }
 .qr-box svg { display: block; width: 96px; height: 96px; }
-.footer-num { flex: 1; min-width: 90px; font-size: 0.68rem; color: var(--ink-dim); word-break: break-all; }
-.footer-price { font-family: var(--serif); font-weight: 700; font-size: 1.4rem; color: var(--gold-2); white-space: nowrap; margin-left: auto; }
+.ticket-price { font-family: var(--serif); font-weight: 700; font-size: 1.8rem; color: #fff; text-align: right; white-space: nowrap; }
 
 .ticket-legal { font-size: 0.78rem; color: var(--ink-dim); margin-top: 18px; text-align: center; }
 .ticket-actions { display: flex; gap: 14px; margin-top: 20px; flex-wrap: wrap; justify-content: center; }
@@ -373,9 +318,9 @@ section { position: relative; padding: 100px 5vw; z-index: 1; }
   body { background: #fff !important; }
   .ticket-wrap { max-width: 100%; }
   .ticket { border: 1px solid #333; box-shadow: none; }
-  .ticket-side { background: #fff !important; border-color: #999; }
   .ticket-artwork { display: none !important; }
   .ticket-stub { background: #fff !important; border-color: #999 !important; }
+  .ticket-ribbon { background: #ddd !important; }
   .ticket-datebadge { background: transparent !important; border-color: #999 !important; }
   * { color: #111 !important; }
   .qr-box { background: #fff !important; }
