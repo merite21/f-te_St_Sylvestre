@@ -14,13 +14,13 @@ define('EVENT_TAGLINE', "Réveillon de la Saint-Sylvestre");
 define('EVENT_START', '2026-12-31 21:00:00'); // début de soirée
 define('EVENT_MIDNIGHT', '2026-12-31 23:59:00'); // cible du compte à rebours (passage à la nouvelle année)
 define('EVENT_END', '2027-01-01 05:00:00');
-define('EVENT_VENUE', 'Immeuble du Supermarché Delta (avant la Pharmacie St Abel)');
+define('EVENT_VENUE', 'Immeuble du supermarché Delta, avant la pharmacie St Abel');
 define('EVENT_CITY', 'Calavi Tankpè');
 
 // Devise affichée sur le site (FCFA / XOF par défaut pour Momo, Flooz, Celtiis Cash).
 define('CURRENCY_LABEL', 'FCFA');
 
-// Tarifs des pass.
+// Tarifs des pass (à ajuster selon votre événement).
 define('PRICE_SOLO', 10000);
 define('PRICE_COUPLE', 15000);
 
