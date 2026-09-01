@@ -18,6 +18,7 @@ if (!$ticket || $ticket['payment_status'] !== 'paid') {
 }
 
 $verifyUrl = rtrim(SITE_URL, '/') . '/verify.php?token=' . urlencode($token);
+$badge = format_event_badge();
 ?>
 
 <section>
@@ -25,26 +26,28 @@ $verifyUrl = rtrim(SITE_URL, '/') . '/verify.php?token=' . urlencode($token);
     <div class="notice notice-success no-print">Paiement confirmé — voici votre billet électronique.</div>
 
     <div class="ticket" id="ticketCard">
+      <div class="ticket-stub">
+        <span class="stub-num">#<?= htmlspecialchars(strtoupper(substr($token, 0, 8))) ?></span>
+      </div>
       <div class="ticket-main">
         <div class="ticket-artwork"></div>
+        <div class="ticket-ribbon"><span>St-Sylvestre</span></div>
+        <div class="ticket-datebadge">
+          <span class="db-day"><?= htmlspecialchars($badge['day']) ?></span>
+          <span class="db-month"><?= htmlspecialchars($badge['month']) ?></span>
+        </div>
         <div class="ticket-content">
-          <div class="ticket-top">
-            <span class="ticket-brand">✦ <?= htmlspecialchars(EVENT_NAME) ?></span>
-            <span class="ticket-when"><?= format_event_date() ?></span>
-          </div>
+          <span class="ticket-brand">✦ <?= htmlspecialchars(EVENT_NAME) ?></span>
           <h2 class="ticket-pass"><?= htmlspecialchars(pass_label($ticket['pass_type'])) ?></h2>
           <div class="ticket-holder">
-            <?= htmlspecialchars($ticket['buyer_name']) ?> · <?= htmlspecialchars(EVENT_VENUE) ?>, <?= htmlspecialchars(EVENT_CITY) ?>
+            <?= htmlspecialchars($ticket['buyer_name']) ?><br>
+            <?= htmlspecialchars(EVENT_VENUE) ?>, <?= htmlspecialchars(EVENT_CITY) ?>
           </div>
           <div class="ticket-bottom">
             <div class="qr-box" id="qrBox"></div>
             <div class="ticket-price"><?= format_money((int)$ticket['price']) ?></div>
           </div>
         </div>
-      </div>
-      <div class="ticket-stub">
-        <span class="stub-text">St-Sylvestre</span>
-        <span class="stub-num">#<?= htmlspecialchars(strtoupper(substr($token, 0, 8))) ?></span>
       </div>
     </div>
     <p class="ticket-legal no-print">
